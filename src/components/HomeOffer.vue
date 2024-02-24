@@ -1,4 +1,5 @@
 <script setup>
+
 </script>
 
 <template>
@@ -7,13 +8,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 offer-box">
-                            <img src="https://static.vecteezy.com/system/resources/previews/011/665/099/original/stylized-3d-discount-badge-illustration-for-black-friday-sale-free-png.png" alt="">
-                            <p class="offer-p">Use Code:WELCOMESS</p> <br>
-                            <h5 class="updescount">UP TO <span class="" style="color: #fd9604;"> 40 % OFF</span> </h5>
-                            <h6 class="Booking">on Your 1ST Booking</h6>
-                            <p class="Flight">of Flight, Hotels and more</p>
+                    <img src="https://static.vecteezy.com/system/resources/previews/011/665/099/original/stylized-3d-discount-badge-illustration-for-black-friday-sale-free-png.png" alt="">
+                    <p class="offer-p">Use Code:WELCOMESS</p> <br>
+                    <h5 class="updescount">UP TO <span class="" style="color: #fd9604;"> 40 % OFF</span> </h5>
+                    <h6 class="Booking">on Your 1ST Booking</h6>
+                    <p class="Flight">of Flight, Hotels and more</p>
 
-                            <a href="" class=""><i class="fas fa-arrow-right"></i></a>
+                    <a href="" class=""><i class="fas fa-arrow-right"></i></a>
                         
                 </div>
                 <div class="col-md-4">

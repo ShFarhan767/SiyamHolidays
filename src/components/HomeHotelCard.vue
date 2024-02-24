@@ -1,42 +1,58 @@
 <script>
 // Assuming you are using Vue.js
 export default {
-  mounted() {
-    this.setupSlider();
-  },
-  methods: {
-    setupSlider() {
-      const cardsContainer = document.querySelector('.card-content');
-      const cardWidth = window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
-      let currentIndex = 0;
+    data() {
+        return {
+            cards: [
+                { title: 'Basket Ball', rating: 4.5, image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
+                { title: 'Volley Ball', rating: 4.4, image: 'https://images.pexels.com/photos/1375383/pexels-photo-1375383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
+                { title: 'Disco Ball', rating: 4.7, image: 'https://images.pexels.com/photos/60217/pexels-photo-60217.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
+                { title: 'Blue Ball', rating: 4.2, image: 'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
+                { title: 'Green Ball', rating: 4.1, image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
+                { title: 'Red Ball', rating: 4.3, image: 'https://images.pexels.com/photos/13581464/pexels-photo-13581464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
+                // Add more cards as needed
+            ],
+            currentIndex: 0
+        };
+    },
+        mounted() {
+        this.setupSlider();
+    },
+    methods: {
+        setupSlider() {
+            const cardsContainer = this.$el.querySelector('.card-content');
+            const cardWidth = window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
+            let currentIndex = 0;
 
-      function handleScrollNext() {
-        currentIndex = (currentIndex + 1) % cardsContainer.children.length;
-        scrollSlider();
-      }
+            this.handleScrollNext = () => {
+                currentIndex = (currentIndex + 1) % cardsContainer.children.length;
+                this.scrollSlider(cardsContainer, cardWidth, currentIndex);
+            };
 
-      function handleScrollPrev() {
-        currentIndex = (currentIndex - 1 + cardsContainer.children.length) % cardsContainer.children.length;
-        scrollSlider();
-      }
+            this.handleScrollPrev = () => {
+                currentIndex = (currentIndex - 1 + cardsContainer.children.length) % cardsContainer.children.length;
+                this.scrollSlider(cardsContainer, cardWidth, currentIndex);
+            };
 
-      function scrollSlider() {
-        const scrollAmount = currentIndex * cardWidth;
-        cardsContainer.scrollLeft = scrollAmount;
+            this.scrollSlider = (container, width, index) => {
+                const scrollAmount = index * width;
+                container.scrollLeft = scrollAmount;
 
-        if (currentIndex === cardsContainer.children.length - 1) {
-          currentIndex = 0;
-          cardsContainer.scrollLeft = 0;
-        }
-      }
+                if (index === container.children.length - 1) {
+                    index = 0;
+                    container.scrollLeft = 0;
+                }
+            };
 
-      const next = document.querySelector('#next');
-      const prev = document.querySelector('#prev');
+            // Add event listeners to navigation buttons
+            const nextButton = this.$el.querySelector('.next-button');
+            const prevButton = this.$el.querySelector('.prev-button');
 
-      next.addEventListener('click', handleScrollNext);
-      prev.addEventListener('click', handleScrollPrev);
-    }
-  }
+            nextButton.addEventListener('click', this.handleScrollNext);
+            prevButton.addEventListener('click', this.handleScrollPrev);
+        },
+    },
+
 };
 
 </script>
@@ -53,113 +69,28 @@ export default {
             <div class="row"> -->
 
                 <div class="slider">
-                    <button id="prev" class="btn">
+                    <button id="prev" class="btn prev-button">
                         <i class="las la-angle-left"></i>
                     </button>
                     
                     <div class="card-content">
                         <!-- Card -->
-                        <div class="card">
-                            <h4>4.5</h4>
+                        <div class="card" v-for="(card, index) in cards" :key="index">
+                            <h4>{{ card.rating }}</h4>
                             <i class="lar la-heart"></i>
                             <div class="card-img">
-                                <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                                <img :src="card.image" :alt="card.title">
                             </div>
                             <div class="card-text">
-                                <h2>Basket Ball</h2>
-                                <p>
-                                    I show you how to make a card group
-                                    easily and very functional with the use
-                                    of flexbox and its magic and JavaScript.
-                                </p>
+                                <h2>{{ card.title }}</h2>
+                                <p>{{ card.description }}</p>
                                 <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
                             </div>
                         </div>
                         <!-- Card End -->
-                            
-                        <!-- Card -->
-                        <div class="card">
-                            <h4>4.4</h4>
-                            <i class="lar la-heart"></i>
-                            <div class="card-img">
-                                <img src="https://images.pexels.com/photos/1375383/pexels-photo-1375383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-                            </div>
-                            <div class="card-text">
-                                <h2>Volley Ball</h2>
-                                <p>
-                                    I show you how to make a card group easily
-                                    and very functional with the use of flexbox and
-                                    its magic and JavaScript.
-                                </p>
-                                <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                            </div>
-                        </div>
-                            <!-- Card End -->
-                            
-                                <!-- Card -->
-                            <div class="card">
-                        <h4>4.7</h4>
-                        <i class="lar la-heart"></i>
-                        <div class="card-img">
-                            <img src="https://images.pexels.com/photos/60217/pexels-photo-60217.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-                        </div>
-                        <div class="card-text">
-                            <h2>Disco Ball</h2>
-                            <p>I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                        </div>
-                            <!-- Card End -->
-                            
-                                <!-- Card -->
-                            <div class="card">
-                        <h4>4.2</h4>
-                        <i class="lar la-heart"></i>
-                        <div class="card-img">
-                            <img src="https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-                        </div>
-                        <div class="card-text">
-                            <h2>Blue Ball</h2>
-                            <p>I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                        </div>
-                            <!-- Card End -->
-                            
-                                <!-- Card -->
-                            <div class="card">
-                        <h4>4.1</h4>
-                        <i class="lar la-heart"></i>
-                        <div class="card-img">
-                            <img src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-
-                        </div>
-                        <div class="card-text">
-                            <h2>Green Ball</h2>
-                            <p>I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                        </div>
-                            <!-- Card End -->
-                            
-                                <!-- Card -->
-                            <div class="card">
-                        <h4>4.5</h4>
-                        <i class="lar la-heart"></i>
-                        <div class="card-img">
-                            <img src="https://images.pexels.com/photos/13581464/pexels-photo-13581464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-
-                        </div>
-                        <div class="card-text">
-                            <h2>Red Ball</h2>
-                            <p>I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                        </div>
-                            <!-- Card End -->
                         
                     </div>
-                    <button id="next" class="btn">
+                    <button id="next" class="btn next-button">
                         <i class="las la-angle-right"></i>
                     </button>
                 </div>

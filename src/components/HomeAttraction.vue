@@ -1,35 +1,83 @@
 <script>
 export default {
-  mounted() {
-    this.setupSlider();
-  },
-  methods: {
-    setupSlider() {
-      const cardsContainer = this.$el.querySelector('.card-content');
-      const cardWidth = window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
-      let currentIndex = 0;
-
-      this.handleScrollNext = () => {
-        currentIndex = (currentIndex + 1) % cardsContainer.children.length;
-        this.scrollSlider();
-      };
-
-      this.handleScrollPrev = () => {
-        currentIndex = (currentIndex - 1 + cardsContainer.children.length) % cardsContainer.children.length;
-        this.scrollSlider();
-      };
-
-      this.scrollSlider = () => {
-        const scrollAmount = currentIndex * cardWidth;
-        cardsContainer.scrollLeft = scrollAmount;
-
-        if (currentIndex === cardsContainer.children.length - 1) {
-          currentIndex = 0;
-          cardsContainer.scrollLeft = 0;
-        }
-      };
+    data() {
+        return {
+            destinations: [
+                {
+                    name: 'Thailand , Bali Island',
+                    description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
+                    person: '2 PERSON',
+                    price: '$173.99',
+                    image: '../../assets/img/Travel/Attractive/Slider-1.jpg'
+                },
+                {
+                    name: 'El Nido’s Beach',
+                    description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
+                    person: '1 PERSON',
+                    price: '$89.99',
+                    image: '../../assets/img/Travel/Attractive/Slider-2.jpg'
+                },
+                {
+                    name: 'Ancient Antique',
+                    description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
+                    person: '1 PERSON',
+                    price: '$127.99',
+                    image: '../../assets/img/Travel/Attractive/Slider-3.jpeg'
+                },
+                {
+                    name: 'Malaysia',
+                    description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
+                    person: '1 PERSON',
+                    price: '$77.99',
+                    image: '../../assets/img/Travel/Attractive/Slider-4.jpeg'
+                },
+                {
+                    name: 'Singapore',
+                    description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
+                    person: '2 PERSON',
+                    price: '$181.99',
+                    image: '../../assets/img/Travel/Attractive/Slider-5.jpg'
+                },
+                {
+                    name: 'Machu Picchu',
+                    description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
+                    person: '2 PERSON',
+                    price: '$147.99',
+                    image: '../../assets/img/Travel/Attractive/slider-6.jpg'
+                }
+            ]
+        };
     },
-  },
+    mounted() {
+        this.setupSlider();
+    },
+    methods: {
+        setupSlider() {
+            const cardsContainer = this.$el.querySelector('.card-content');
+            const cardWidth = window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
+            let currentIndex = 0;
+
+            this.handleScrollNext = () => {
+                currentIndex = (currentIndex + 1) % cardsContainer.children.length;
+                this.scrollSlider();
+            };
+
+            this.handleScrollPrev = () => {
+                currentIndex = (currentIndex - 1 + cardsContainer.children.length) % cardsContainer.children.length;
+                this.scrollSlider();
+            };
+
+            this.scrollSlider = () => {
+                const scrollAmount = currentIndex * cardWidth;
+                cardsContainer.scrollLeft = scrollAmount;
+
+                if (currentIndex === cardsContainer.children.length - 1) {
+                currentIndex = 0;
+                cardsContainer.scrollLeft = 0;
+                }
+            };
+        },
+    },
 };
 </script>
 
@@ -54,96 +102,13 @@ export default {
 
                 <div class="card-content">
                     <!-- Card -->
-                    <div class="card">
-                        <img src="../../assets/img/Travel/Attractive/Slider-1.jpg" alt="destination" />
+                    <div class="card" v-for="(destination, index) in destinations" :key="index">
+                        <img :src="destination.image" alt="destination" />
                         <div class="card__content">
-                            <h3>Thailand , Bali Island</h3>
-                            <p>
-                                Discover off-the-beaten-path locations and hidden gems within
-                                dream destinations, taking you beyond the typical tourist spots.
-                            </p>
-                            <p><i class="fas fa-map-marker-alt"></i> 2 PERSON</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$173.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <img src="../../assets/img/Travel/Attractive/Slider-2.jpg" alt="destination" />
-                        <div class="card__content">
-                            <h3>El Nido’s Beach</h3>
-                            <p>
-                                Discover off-the-beaten-path locations and hidden gems within
-                                dream destinations, taking you beyond the typical tourist spots.
-                            </p>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$89.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                     <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <img src="../../assets/img/Travel/Attractive/Slider-3.jpeg" alt="destination" />
-                        <div class="card__content">
-                            <h3>Ancient Antique</h3>
-                            <p>
-                                Discover off-the-beaten-path locations and hidden gems within
-                                dream destinations, taking you beyond the typical tourist spots.
-                            </p>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$127.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <img src="../../assets/img/Travel/Attractive/Slider-4.jpeg" alt="destination" />
-                        <div class="card__content">
-                            <h3>Malaysia</h3>
-                            <p>
-                                Discover off-the-beaten-path locations and hidden gems within
-                                dream destinations, taking you beyond the typical tourist spots.
-                            </p>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$77.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <img src="../../assets/img/Travel/Attractive/Slider-5.jpg" alt="destination" />
-                        <div class="card__content">
-                            <h3>Singapore</h3>
-                            <p>
-                                Discover off-the-beaten-path locations and hidden gems within
-                                dream destinations, taking you beyond the typical tourist spots.
-                            </p>
-                            <p><i class="fas fa-map-marker-alt"></i> 2 PERSON</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$181.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <img src="../../assets/img/Travel/Attractive/slider-6.jpg" alt="destination" />
-                        <div class="card__content">
-                            <h3>Machu Picchu</h3>
-                            <p>
-                                Discover off-the-beaten-path locations and hidden gems within
-                                dream destinations, taking you beyond the typical tourist spots.
-                            </p>
-                            <p><i class="far fa-user"></i> 2 PERSON</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$147.99</span></p>
+                            <h3>{{ destination.name }}</h3>
+                            <p>{{ destination.description }}</p>
+                            <p><i class="fas fa-map-marker-alt"></i> {{ destination.person }}</p>
+                            <p class="price"><i class="fas fa-tag"></i> Price <span>{{ destination.price }}</span></p>
                             <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
                         </div>
                     </div>
