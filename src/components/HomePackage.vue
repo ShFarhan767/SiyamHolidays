@@ -1,35 +1,47 @@
 <script>
 export default {
-  mounted() {
-    this.setupSlider();
-  },
-  methods: {
-    setupSlider() {
-      const cardsContainer = this.$el.querySelector('.card-content');
-      const cardWidth = window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
-      let currentIndex = 0;
-
-      this.handleScrollNext = () => {
-        currentIndex = (currentIndex + 1) % cardsContainer.children.length;
-        this.scrollSlider();
-      };
-
-      this.handleScrollPrev = () => {
-        currentIndex = (currentIndex - 1 + cardsContainer.children.length) % cardsContainer.children.length;
-        this.scrollSlider();
-      };
-
-      this.scrollSlider = () => {
-        const scrollAmount = currentIndex * cardWidth;
-        cardsContainer.scrollLeft = scrollAmount;
-
-        if (currentIndex === cardsContainer.children.length - 1) {
-          currentIndex = 0;
-          cardsContainer.scrollLeft = 0;
-        }
-      };
+    data() {
+        return {
+            cards: [
+                { title: 'Great Ocean Road , Australia', days: '5 Days Tour', price: '$2700/couple', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-1.webp' },
+                { title: 'Great Ocean Road , Australia', days: '11 Days Tour', price: '$3400/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-2.webp' },
+                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-3.webp' },
+                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-4.webp' },
+                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-5.webp' },
+                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-6.jpeg' }
+            ]
+        };
     },
-  },
+    mounted() {
+        this.setupSlider();
+    },
+    methods: {
+        setupSlider() {
+            const cardsContainer = this.$el.querySelector('.card-content');
+            const cardWidth = window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
+            let currentIndex = 0;
+
+            this.handleScrollNext = () => {
+                currentIndex = (currentIndex + 1) % cardsContainer.children.length;
+                this.scrollSlider();
+            };
+
+            this.handleScrollPrev = () => {
+                currentIndex = (currentIndex - 1 + cardsContainer.children.length) % cardsContainer.children.length;
+                this.scrollSlider();
+            };
+
+            this.scrollSlider = () => {
+                const scrollAmount = currentIndex * cardWidth;
+                cardsContainer.scrollLeft = scrollAmount;
+
+                if (currentIndex === cardsContainer.children.length - 1) {
+                currentIndex = 0;
+                cardsContainer.scrollLeft = 0;
+                }
+            };
+        },
+    },
 };
 </script>
 
@@ -52,115 +64,20 @@ export default {
 
             <div class="slider">
 
-                <div class="card-content">
-                    <!-- Card -->
-                    <div class="card">
+                <div class="card-content" ref="cardContent">
+                    <div class="card" v-for="(card, index) in cards" :key="index">
                         <div class="Package-card-img">
-                            <img src="../../assets/img/Travel/Package/Package_Slider-1.webp" alt="">
+                            <img :src="card.image" alt="">
                         </div>
                         <div class="card-text">
-                            <span class="days">5 Days Tour</span>
-                            <span class="price">$2700/couple</span>
-
-                            <h2>Great Ocean Road , Australia</h2>
-                            <p class="location"><span class="fas fa-map"></span>Ocean Road , Australia</p>
-
-                            <p class="place"><span class="fas fa-mountain"></span>Near Mountain</p>
+                            <span class="days">{{ card.days }}</span>
+                            <span class="price">{{ card.price }}</span>
+                            <h2>{{ card.title }}</h2>
+                            <p class="location"><span class="fas fa-map"></span>{{ card.location }}</p>
+                            <p class="place"><span class="fas fa-mountain"></span>{{ card.place }}</p>
                             <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
                         </div>
                     </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="Package-card-img">
-                            <img src="../../assets/img/Travel/Package/Package_Slider-2.webp" alt="">
-                        </div>
-                        <div class="card-text">
-                            <span class="days">11 Days Tour</span>
-                            <span class="price">$3400/person</span>
-
-                            <h2>Great Ocean Road , Australia</h2>
-                            <p class="location"><span class="fas fa-map"></span>Ocean Road , Australia</p>
-
-                            <p class="place"><span class="fas fa-mountain"></span>Near Mountain</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="Package-card-img">
-                            <img src="../../assets/img/Travel/Package/Package_Slider-3.webp" alt="">
-                        </div>
-                        <div class="card-text">
-                            <span class="days">8 Days Tour</span>
-                            <span class="price">$300/person</span>
-
-                            <h2>Great Ocean Road , Australia</h2>
-                            <p class="location"><span class="fas fa-map"></span>Ocean Road , Australia</p>
-
-                            <p class="place"><span class="fas fa-mountain"></span>Near Mountain</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="Package-card-img">
-                            <img src="../../assets/img/Travel/Package/Package_Slider-4.webp" alt="">
-                        </div>
-                        <div class="card-text">
-                            <span class="days">8 Days Tour</span>
-                            <span class="price">$300/person</span>
-
-                            <h2>Great Ocean Road , Australia</h2>
-                            <p class="location"><span class="fas fa-map"></span>Ocean Road , Australia</p>
-
-                            <p class="place"><span class="fas fa-mountain"></span>Near Mountain</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="Package-card-img">
-                            <img src="../../assets/img/Travel/Package/Package_Slider-5.webp" alt="">
-                        </div>
-                        <div class="card-text">
-                            <span class="days">8 Days Tour</span>
-                            <span class="price">$300/person</span>
-
-                            <h2>Great Ocean Road , Australia</h2>
-                            <p class="location"><span class="fas fa-map"></span>Ocean Road , Australia</p>
-
-                            <p class="place"><span class="fas fa-mountain"></span>Near Mountain</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="Package-card-img">
-                            <img src="../../assets/img/Travel/Package/Package_Slider-6.jpeg" alt="">
-                        </div>
-                        <div class="card-text">
-                            <span class="days">8 Days Tour</span>
-                            <span class="price">$300/person</span>
-
-                            <h2>Great Ocean Road , Australia</h2>
-                            <p class="location"><span class="fas fa-map"></span>Ocean Road , Australia</p>
-
-                            <p class="place"><span class="fas fa-mountain"></span>Near Mountain</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                        
                 </div>
                 
             </div>

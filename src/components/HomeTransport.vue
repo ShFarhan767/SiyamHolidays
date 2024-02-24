@@ -1,35 +1,47 @@
 <script>
 export default {
-  mounted() {
-    this.setupSlider();
-  },
-  methods: {
-    setupSlider() {
-      const cardsContainer = this.$el.querySelector('.card-content');
-      const cardWidth = window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
-      let currentIndex = 0;
-
-      this.handleScrollNext = () => {
-        currentIndex = (currentIndex + 1) % cardsContainer.children.length;
-        this.scrollSlider();
-      };
-
-      this.handleScrollPrev = () => {
-        currentIndex = (currentIndex - 1 + cardsContainer.children.length) % cardsContainer.children.length;
-        this.scrollSlider();
-      };
-
-      this.scrollSlider = () => {
-        const scrollAmount = currentIndex * cardWidth;
-        cardsContainer.scrollLeft = scrollAmount;
-
-        if (currentIndex === cardsContainer.children.length - 1) {
-          currentIndex = 0;
-          cardsContainer.scrollLeft = 0;
-        }
-      };
+    data() {
+        return {
+            cards: [
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY PLANE', price: '$270.99', image: 'https://images.pexels.com/photos/163792/model-planes-airplanes-miniatur-wunderland-hamburg-163792.jpeg?auto=compress&cs=tinysrgb&w=400' },
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY TRAIN', price: '$21.49', image: 'https://images.pexels.com/photos/72594/japan-train-railroad-railway-72594.jpeg?auto=compress&cs=tinysrgb&w=400' },
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$14.99', image: 'https://images.pexels.com/photos/1178448/pexels-photo-1178448.jpeg?auto=compress&cs=tinysrgb&w=400' },
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+                { title: 'A Tropical Haven.', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/3601421/pexels-photo-3601421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' }
+            ]
+        };
     },
-  },
+    mounted() {
+        this.setupSlider();
+    },
+    methods: {
+        setupSlider() {
+            const cardsContainer = this.$el.querySelector('.card-content');
+            const cardWidth = window.innerWidth / 2 > 600 ? window.innerWidth / 2 : window.innerWidth - 100;
+            let currentIndex = 0;
+
+            this.handleScrollNext = () => {
+                currentIndex = (currentIndex + 1) % cardsContainer.children.length;
+                this.scrollSlider();
+            };
+
+            this.handleScrollPrev = () => {
+                currentIndex = (currentIndex - 1 + cardsContainer.children.length) % cardsContainer.children.length;
+                this.scrollSlider();
+            };
+
+            this.scrollSlider = () => {
+                const scrollAmount = currentIndex * cardWidth;
+                cardsContainer.scrollLeft = scrollAmount;
+
+                if (currentIndex === cardsContainer.children.length - 1) {
+                currentIndex = 0;
+                cardsContainer.scrollLeft = 0;
+                }
+            };
+        },
+    },
 };
 </script>
 
@@ -53,91 +65,14 @@ export default {
 
                 <div class="card-content">
                     <!-- Card -->
-                    <div class="card">
+                    <div class="card" v-for="(card, index) in cards" :key="index">
                         <div class="Package-card-img">
-                            <img src="https://images.pexels.com/photos/163792/model-planes-airplanes-miniatur-wunderland-hamburg-163792.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+                            <img :src="card.image" alt="">
                         </div>
                         <div class="card-text">
-                            <h2>Great Ocean Road</h2>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON,  (BY PLANE)</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$270.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                    <!-- Card End -->
-                            
-                    <!-- Card -->
-                    <div class="card">
-                    
-                        <div class="Package-card-img">
-                            <img src="https://images.pexels.com/photos/72594/japan-train-railroad-railway-72594.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
-                        </div>
-                        <div class="card-text">
-                            <h2>Great Ocean Road</h2>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON,  (BY TRAIN)</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$21.49</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                        <!-- Card End -->
-                            
-                        <!-- Card -->
-                    <div class="card">
-                        
-                        <div class="Package-card-img">
-                            <img src="https://images.pexels.com/photos/1178448/pexels-photo-1178448.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
-                        </div>
-                        <div class="card-text">
-                            <h2>Great Ocean Road</h2>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON,  (BY BUS)</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$14.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                        <!-- Card End -->
-                            
-                        <!-- Card -->
-                    <div class="card">
-                        
-                        <div class="Package-card-img">
-                            <img src="https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-                        </div>
-                        <div class="card-text">
-                            <h2>Great Ocean Road</h2>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON,  (BY BUS)</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$17.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                        <!-- Card End -->
-                            
-                        <!-- Card -->
-                    <div class="card">
-                        
-                        <div class="Package-card-img">
-                            <img src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-
-                        </div>
-                        <div class="card-text">
-                            <h2>Great Ocean Road</h2>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON,  (BY BUS)</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$17.99</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
-                        </div>
-                    </div>
-                        <!-- Card End -->
-                            
-                        <!-- Card -->
-                    <div class="card">
-                        
-                        <div class="Package-card-img">
-                            <img src="https://images.pexels.com/photos/3601421/pexels-photo-3601421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-
-                        </div>
-                        <div class="card-text">
-                            <h2>A Tropical Haven.</h2>
-                            <p><i class="fas fa-map-marker-alt"></i> 1 PERSON,  (BY BUS)</p>
-                            <p class="price"><i class="fas fa-tag"></i> Price <span>$17.99</span></p>
+                            <h2>{{ card.title }}</h2>
+                            <p><i class="fas fa-map-marker-alt"></i> {{ card.persons }} PERSON, ({{ card.transport }})</p>
+                            <p class="price"><i class="fas fa-tag"></i> Price <span>{{ card.price }}</span></p>
                             <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
                         </div>
                     </div>
