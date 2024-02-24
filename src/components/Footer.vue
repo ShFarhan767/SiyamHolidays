@@ -1,4 +1,81 @@
 <script setup>
+
+   const FooterContent = {
+      FooterLogo:{
+        image:"../../assets/img/Header.png",
+      },
+      ContactInfo:{
+        Phone:"Phone: 02226603034",
+        Whatsapp:"Whatsapp : 01727-985581",
+        Email:"E-mail: sales@siyamholidays.com",
+      },
+      Contact:{
+        towntyFor:"24",
+        Saven:"7 Contact",
+        Number:"0188 00 78 901",
+      },
+      FooterImage:{
+        image:"http://siyamholidays.com/images/tat.png",
+      },
+      AboutHeading:{
+        AboutTitle:"About Us",
+        
+      },
+      About:[
+        {List:"How to Book"},
+        {List:"Contact Us"},
+        {List:"Help Center"},
+        {List:"About Us"},
+    ],
+      Follow:[
+        {List:"fab fa-facebook-f", IconName:"Facbook" },
+        {List:"fab fa-twitter", IconName:"Twitte" },
+        {List:"fab fa-google-plus-g", IconName:"Google plus" },
+        {List:"fab fa-youtube", IconName:"Youtube" },
+        
+    ],
+    ProductsInfo:{
+        ProductsTaitle:"Products",
+    },
+    Products:[
+        {List:"Hotels"},
+        {List:"Flight"},
+        {List:"Package Tour"},
+        {List:"Transportation"},
+        {List:"Attractions & Activities"},
+        {List:"Visa Service"},
+        {List:"Hajj"},
+        {List:"Umrah"},
+    ],
+    Otherinfo:{
+        OthersTitle:"Others",
+    },
+    other:[
+        {list:"Newsletter Subscription"},
+        {list:"Privacy Policy"},
+        {list:"Terms &amp; Conditions"},
+        {list:"Travel Agent"},
+    ],
+    OtherImage:{
+        image:"http://siyamholidays.com/images/pay.png"
+    },
+    secentBox1:{
+        Title:"Bangladesh Office",
+        Office:"Siyam Holidays",
+        Location:"House#62, Road#15, Block-C, Banani, Dhaka-1212, Bangladesh.Contact: 09639888555"
+    },
+    secentBox2:{
+        Title:"Dubai Office",
+        Office:"Siyam Holidays Tourism L.L.C",
+        Location:"Bin Zafar Building, Shop No-03, Eyal Nasser, Deira, Naif, Dubai, United Arab Emirates."
+    },
+    secentBox3:{
+        Title:"Thailand Office",
+        Office:"Siyam Holidays Co, Ltd",
+        Location:"21/34, Moo-5, Nangprue Banglamung, Chonburi-20150, Thailand. "
+    },
+    }
+
 </script>
 
 <template>
@@ -10,78 +87,57 @@
                     <div class="container mt-3">
                         <div class="row">
                             <div class="col-md-3 col-sm-6" style="color: white;font-weight: normal;font-size: 15px;">
-                                <div class=""> <img src="../../assets/img/Header.png" alt="" style="width: 200px; margin-bottom: 7px;"></div> 
+                                <div class=""><img :src="FooterContent.FooterLogo.image" alt="" style="width: 200px; margin-bottom: 7px;"></div> 
                                 <p class="">
-                                    Phone: 02226603034
+                                    {{ FooterContent.ContactInfo.Phone }}
                                 </p>
 
                                 <p class="">
-                                    Whatsapp : 01727-985581
+                                    {{ FooterContent.ContactInfo.Whatsapp }}
                                 </p>
                                  <p class="">
-                                  E-mail: sales@siyamholidays.com
+                                  {{ FooterContent.ContactInfo.Email }}
                                 </p>
 
-                                <h3 class="contact" >24<span class=" " style="color: #fd9604;">/</span>7 Contact </h3>
-                                <h5 class="number" style="color: #fd9604;"> 0188 00 78 901 </h5>
+                                <h3 class="contact" >{{ FooterContent.Contact.towntyFor }}<span class=" " style="color: #fd9604;">/</span>{{ FooterContent.Contact.Saven }} </h3>
+                                <h5 class="number" style="color: #fd9604;">{{ FooterContent.Contact.Number }}</h5>
                                     <div class="col-md-12 padding" style="margin-top: 10px;margin-bottom: 10px;">
                                         <img src="https://tvlk.imgix.net/imageResource/2017/12/13/1513150313470-072f6bdc02c0b73fcf791aa2b2264fbd.svg?auto=compress%2Cformat&cs=srgb&ixlib=java-1.1.12&q=75" style="width: 80px;">
                                          <img src="https://tvlk.imgix.net/imageResource/2017/12/13/1513150321127-5096be77d2a19401b476853e54ba2cc6.svg?auto=compress%2Cformat&cs=srgb&ixlib=java-1.1.12&q=75" style="width: 80px;">
-                                         <img src="http://siyamholidays.com/images/tat.png" style="width: 200px;margin-top: 10px;">
+                                         <img :src="FooterContent.FooterImage.image" style="width: 200px;margin-top: 10px;">
                                     </div>
                             </div>
 
                             <div class="col-md-3 col-sm-6 padding">
-                                <h6 class="heading7"> About Us </h6>
+                                <h6 class="heading7"> {{ FooterContent.AboutHeading.AboutTitle }} </h6>
                                 <ul class="footer-ul" style="font-weight: normal;">
-                                    <li><a href="#"> How to Book </a></li>
-                                    <li><a href="#"> Contact Us </a></li>
-                                    <li><a href="#"> Help Center </a></li>
-                                    <li><a href="#"> About Us </a></li>
+                                    <li v-for="(Abouts, index) in FooterContent.About" :key="index"><a href="#">{{Abouts.list}}</a></li>
                                     <li> 
-                                
                                     <h3 class="mt-3" style="color: white; font-size: 20px; font-weight: 500; letter-spacing: 0.2px;"> Follow <span class=" " style="color: #fd9604;">US</span> on </h3>
-                                </li>
+                                    </li>
 
-                                    <li><a href="https://www.facebook.com/siyamholidays/" target="_blank" class="color-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                                    <li><a href="https://twitter.com/" class="color-white"><i class="fab fa-twitter"></i> Twitter</a></li>
-                                            <li>
-                                                <a href="https://aboutme.google.com/" class="color-white">
-                                                    <i class="fab fa-google-plus-g"></i> Google Plus
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.youtube.com">
-                                                    <i class="fab fa-youtube"></i> Youtube
-                                                </a>
-                                            </li>
+                                    <li v-for="(Follows, index) in FooterContent.Follow" :key="index"><a href="https://www.facebook.com/siyamholidays/" target="_blank" class="color-white"><i :class="Follows.List"></i>{{ Follows.IconName }}</a></li>
+                                            
                                 </ul>
                             </div>
 
                             <div class="col-md-3 col-sm-6">
-                                <h6 class="heading7"> Products </h6>
+                                <h6 class="heading7"> {{ FooterContent.ProductsInfo.ProductsTaitle }} </h6>
                                 <ul class="footer-ul" style="font-weight: normal;">
-                                    <li><a href="#"> Hotels </a></li>
-                                    <li><a href="#"> Flight </a></li>
-                                    <li><a href="#"> Package Tour</a></li>
-                                    <li><a href="#"> Transportation </a></li>
-                                    <li><a href="#"> Attractions & Activities </a></li>
-                                    <li><a href="#"> Visa Service </a></li>
-                                    <li><a href="#"> Hajj </a></li>
-                                    <li><a href="#"> Umrah </a></li>
+                                    <li v-for="(productss, index) in FooterContent.Products" :key="index"><a href="#"> {{productss.List}} </a></li>
                                 </ul>
                             </div>
 
                             <div class="col-md-3 col-sm-6">
-                                <h6 class="heading7"> Others </h6>
+                                <h6 class="heading7"> {{ FooterContent.Otherinfo.OthersTitle }} </h6>
                                 <ul class="footer-ul" style="font-weight: normal;">
-                                    <li><a href="subscription.php"> Newsletter Subscription</a></li>
-                                    <li><a href="privacypolicy.php"> Privacy Policy</a></li>
-                                    <li><a href="terms.php"> Terms &amp; Conditions</a></li>
+                                    <li v-for="(otherss, index) in FooterContent.other" :key="index"><a href="subscription.php">{{otherss.list}}</a></li>
+                                    <!-- <li><a href="privacypolicy.php"> </a></li>
+                                    <li><a href="terms.php"></a></li> -->
                                    <!--  <li><a href="#">Register Your Hotel</a></li> -->
                                    <!--  <li><a href="#"> Vendor Partner </a></li> -->
-                                    <li><a href="travelagent.php"> Travel Agent </a></li>
-                                    <li><a href="#"> <img src="http://siyamholidays.com/images/pay.png" alt="" style="width: 180px; margin-top: 10px;"> </a></li>
+                                    <!-- <li><a href="travelagent.php"> </a></li> -->
+                                    <li><a href="#"> <img :src="FooterContent.OtherImage.image" alt="" style="width: 180px; margin-top: 10px;"> </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -93,23 +149,23 @@
                         <div class="row">
                             <div class="col-md-4 ">
                             <div class="col-md-12 secend-box">
-                                <h4 class=" mt-2" style="text-align: center; font-size: 18px; color: #fd9604;">Bangladesh Office</h4><hr>
-                                    <h4 style="color: white; font-size: 16px;"> Siyam Holidays </h4>
-                                    <p class="p" style="color: white;font-weight: normal;">House#62, Road#15, Block-C, Banani, Dhaka-1212, Bangladesh.Contact: 09639888555</p>
+                                <h4 class=" mt-2" style="text-align: center; font-size: 18px; color: #fd9604;">{{ FooterContent.secentBox1.Title }}</h4><hr>
+                                    <h4 style="color: white; font-size: 16px;"> {{ FooterContent.secentBox1.Office }} </h4>
+                                    <p class="p" style="color: white;font-weight: normal;">{{ FooterContent.secentBox1.Location }}</p>
                             </div>
                             </div>
                             <div class="col-md-4">
                             <div class="col-md-12 secend-box">
-                                <h4 class="mt-2" style="text-align: center;color: white;font-size: 18px;color: #fd9604;">Dubai Office </h4><hr>
-                                    <h4 style="color: white; font-size: 16px;"> Siyam Holidays Tourism L.L.C </h4>
-                                    <p class="p" style="color: white;font-weight: normal;">Bin Zafar Building, Shop No-03, Eyal Nasser, Deira, Naif, Dubai, United Arab Emirates. </p>
+                                <h4 class="mt-2" style="text-align: center;color: white;font-size: 18px;color: #fd9604;">{{ FooterContent.secentBox2.Title }}</h4><hr>
+                                    <h4 style="color: white; font-size: 16px;"> {{ FooterContent.secentBox2.Office }} </h4>
+                                    <p class="p" style="color: white;font-weight: normal;">{{ FooterContent.secentBox2.Location }}</p>
                             </div>
                             </div>
                             <div class="col-md-4">
                             <div class="col-md-12 secend-box">
-                                <h4 class="mt-2" style="text-align: center;color: white; font-size: 18px;color: #fd9604;">Thailand Office </h4><hr>
-                                    <h4 style="color: white; font-size: 16px;"> Siyam Holidays Co, Ltd </h4>
-                                    <p class="p" style="color: white;font-weight: normal;"> 21/34, Moo-5, Nangprue Banglamung, Chonburi-20150, Thailand. </p>
+                                <h4 class="mt-2" style="text-align: center;color: white; font-size: 18px;color: #fd9604;">{{ FooterContent.secentBox3.Title }}</h4><hr>
+                                    <h4 style="color: white; font-size: 16px;">{{ FooterContent.secentBox3.Office }}</h4>
+                                    <p class="p" style="color: white;font-weight: normal;">{{ FooterContent.secentBox3.Location }}</p>
                             </div>
                             </div>
                         </div>
