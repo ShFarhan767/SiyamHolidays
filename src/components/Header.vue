@@ -6,7 +6,7 @@ const headerContent = {
         hours: "Mon-Sat, 8.00-18.00. Sunday CLOSED"
     },
     navbarContent: {
-        logoSrc: "../../assets/img/Travel/Logo/logo_2.png",
+        logoSrc: "/assets/logo_2-672de651.png",
         navItems: [
             { label: "Home", link: "/" },
             { label: "Hotel", link: "/hotel" },
@@ -79,6 +79,7 @@ const headerContent = {
                     <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" :href="headerContent.navbarContent.loginButtonLink" target="_blank">Login</a>
                 </div>
             </nav>
+            <img src="../../assets/img/Travel/Logo/logo_2.png" alt="" style="display: none;">
       </div>
     </div>
 
