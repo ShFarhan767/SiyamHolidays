@@ -74,6 +74,7 @@ const headerContent = {
                     <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" :href="headerContent.navbarContent.loginButtonLink" target="_blank">Login</a>
                 </div>
             </nav>
+            <img src="../../assets/img/Travel/Logo/logo_2.png" alt="" style="display: none;">
       </div>
     </div>
 
