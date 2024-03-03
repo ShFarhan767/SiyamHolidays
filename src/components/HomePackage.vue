@@ -3,12 +3,12 @@ export default {
     data() {
         return {
             cards: [
-                { title: 'Great Ocean Road , Australia', days: '5 Days Tour', price: '$2700/couple', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-1.webp' },
-                { title: 'Great Ocean Road , Australia', days: '11 Days Tour', price: '$3400/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-2.webp' },
-                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-3.webp' },
-                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-4.webp' },
-                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-5.webp' },
-                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '../../assets/img/Travel/Package/Package_Slider-6.jpeg' }
+                { title: 'Great Ocean Road , Australia', days: '5 Days Tour', price: '$2700/couple', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '/assets/Package_Slider-1-a3a12458.webp', bookLink: '#' },
+                { title: 'Great Ocean Road , Australia', days: '11 Days Tour', price: '$3400/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '/assets/Package_Slider-2-742083f5.webp', bookLink: '#' },
+                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '/assets/Package_Slider-3-162cf4c1.webp', bookLink: '#' },
+                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '/assets/Package_Slider-4-fc72198b.webp', bookLink: '#' },
+                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '/assets/Package_Slider-5-85f7ef18.webp', bookLink: '#' },
+                { title: 'Great Ocean Road , Australia', days: '8 Days Tour', price: '$300/person', location: 'Ocean Road , Australia', place: 'Near Mountain', image: '/assets/Package_Slider-6-09ba78b8.jpeg', bookLink: '#' }
             ]
         };
     },
@@ -75,7 +75,7 @@ export default {
                             <h2>{{ card.title }}</h2>
                             <p class="location"><span class="fas fa-map"></span>{{ card.location }}</p>
                             <p class="place"><span class="fas fa-mountain"></span>{{ card.place }}</p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
+                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" :href="card.bookLink" target="_blank">Book Now</a>
                         </div>
                     </div>
                 </div>

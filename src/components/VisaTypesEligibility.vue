@@ -1,25 +1,25 @@
 <script setup>
 const cards = [
   {
-    icon: '../../assets/img/Travel/VIsa/profile-2user.svg',
+    icon: '/assets/profile-2user-abc7cdac.svg',
     title: 'Certified Tutors',
     color:'rgba(254, 108, 63, 0.1)',
     backgroundColor: '#FE6C3F',
   },
   {
-    icon: '../../assets/img/Travel/VIsa/book.svg',
+    icon: '/assets/book-a10ccc6c.svg',
     title: 'Doubt Solving Sessions',
     color:'rgba(20, 149, 248, 0.1)',
     backgroundColor: '#1496F8',
   },
   {
-    icon: '../../assets/img/Travel/VIsa/teacher.svg',
+    icon: '/assets/teacher-8b51c943.svg',
     title: 'Flexible & Regular Batches',
     color:'rgba(0, 204, 153, 0.1)',
     backgroundColor: '#00CC99',
   },
   {
-    icon: '../../assets/img/Travel/VIsa/briefcase.svg',
+    icon: '/assets/briefcase-aaa0d58b.svg',
     title: 'Free study materials',
     color:'rgba(255, 187, 15, 0.1)',
     backgroundColor: '#FFBD0F',

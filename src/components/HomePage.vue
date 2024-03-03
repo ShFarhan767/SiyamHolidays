@@ -7,6 +7,7 @@ import HomePackage from './HomePackage.vue';
 import HomeFlight from './HomeFlight.vue';
 import HomeTransport from './HomeTransport.vue';
 import HomeAttraction from './HomeAttraction.vue';
+import DynamicImage from './DynamicImage.vue';
 
 </script>
 
@@ -22,5 +23,6 @@ import HomeAttraction from './HomeAttraction.vue';
             <HomePackage />
             <HomeTransport />
             <HomeAttraction />
+            <DynamicImage />
         </main>
 </template>

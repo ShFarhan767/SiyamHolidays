@@ -1,37 +1,37 @@
 <script setup>
-const cards = [
+const visaTypeCard = [
   {
-    icon: '../../assets/img/Travel/VIsa/sv_01.svg',
+    icon: '/assets/sv_01-cfeaab7a.svg',
     title: 'Tourist Visa',
     description: 'Visit new places to discover with a Tourist Visa. We deliver your documents ...',
     color: '#FE6C3F',
   },
   {
-    icon: '../../assets/img/Travel/VIsa/sv_02.svg',
+    icon: '/assets/sv_02-d6e19711.svg',
     title: 'Commercial Visa',
     description: 'Developing your trade, setting up new sales channels Your visa is ready...',
     color: '#897CB5',
   },
   {
-    icon: '../../assets/img/Travel/VIsa/sv_02.svg',
+    icon: '/assets/sv_02-d6e19711.svg',
     title: 'Diplomatic Visa',
     description: 'For government officials, diplomats, and representatives of international....',
     color: "#FB3F7E",
   },
   {
-    icon: '../../assets/img/Travel/VIsa/sv_03.svg',
+    icon: '/assets/sv_03-60ac4d40.svg',
     title: 'Student Visa',
     description: 'Embarking on a journey of higher education in a foreign country opens doors to...',
     color: "#00CC99",
   },
   {
-    icon: '../../assets/img/Travel/VIsa/sv_04.svg',
+    icon: '/assets/sv_04-3448f09b.svg',
     title: 'Residence Visa',
     description: 'Expert Guidance for a Seamless Immigration Journey Expert Guidance...',
     color: "#0091FF",
   },
   {
-    icon: '../../assets/img/Travel/VIsa/sv_05.svg',
+    icon: '/assets/sv_05-6894c7c2.svg',
     title: 'Working Visa',
     description: 'Get your Visa now for new business and earning opportunities. We deliver your...',
     color: "#FFBD0F",
@@ -45,7 +45,7 @@ const cards = [
         <div class="container">
             <h2>Visa types and eligibility <br> <span>assessment</span></h2>
             <div class="row">
-                <div v-for="(Card , index) in cards" :key="index" class="col-md-4 Type_Card">
+                <div v-for="(Card , index) in visaTypeCard" :key="index" class="col-md-4 Type_Card">
                     <div class="card">
                         <div class="Icon_img" :style="{ background: Card.color }">
                             <img :src="Card.icon" alt="">

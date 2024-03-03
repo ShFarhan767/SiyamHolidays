@@ -1,7 +1,7 @@
 <script setup>
 const travelPackages = [
   {
-    image: "../../assets/img/Travel/Package/Package_Slider-1.webp",
+    image: "/assets/Package_Slider-1-a3a12458.webp",
     days: "5 Days Tour",
     price: "$2700/couple",
     title: "Great Ocean Road , Australia",
@@ -10,7 +10,7 @@ const travelPackages = [
     bookingLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Package/Package-Slider-2.jpeg",
+    image: "/assets/Package_Slider-2-742083f5.webp",
     days: "3 Days Tour",
     price: "$1140/couple",
     title: "Lesser Sunda Islands",
@@ -19,7 +19,7 @@ const travelPackages = [
     bookingLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Package/Package_Slider-3.webp",
+    image: "/assets/Package_Slider-3-162cf4c1.webp",
     days: "7 Days Tour",
     price: "$1890/couple",
     title: "Hakuraa",
@@ -28,7 +28,7 @@ const travelPackages = [
     bookingLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Package/Package-Slider-4.jpeg",
+    image: "/assets/Package-Slider-4-9ebe4ea7.jpeg",
     days: "6 Days Tour",
     price: "$2410/couple",
     title: "Banff",
@@ -37,7 +37,7 @@ const travelPackages = [
     bookingLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Package/Package-Slider-5.jpeg",
+    image: "/assets/Package-Slider-5-1b7790ef.jpeg",
     days: "11 Days Tour",
     price: "$1560/couple",
     title: "Hạ Long Bay",
@@ -46,7 +46,7 @@ const travelPackages = [
     bookingLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Package/Package_Slider-6.jpeg",
+    image: "/assets/Package_Slider-6-09ba78b8.jpeg",
     days: "7 Days Tour",
     price: "$1890/couple",
     title: "Hakuraa",

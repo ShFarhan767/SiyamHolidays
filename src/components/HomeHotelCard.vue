@@ -4,12 +4,12 @@ export default {
     data() {
         return {
             cards: [
-                { title: 'Basket Ball', rating: 4.5, image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
-                { title: 'Volley Ball', rating: 4.4, image: 'https://images.pexels.com/photos/1375383/pexels-photo-1375383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
-                { title: 'Disco Ball', rating: 4.7, image: 'https://images.pexels.com/photos/60217/pexels-photo-60217.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
-                { title: 'Blue Ball', rating: 4.2, image: 'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
-                { title: 'Green Ball', rating: 4.1, image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
-                { title: 'Red Ball', rating: 4.3, image: 'https://images.pexels.com/photos/13581464/pexels-photo-13581464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.' },
+                { title: 'Basket Ball', rating: 4.5, image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.', bookLink: '#' },
+                { title: 'Volley Ball', rating: 4.4, image: 'https://images.pexels.com/photos/1375383/pexels-photo-1375383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.', bookLink: '#' },
+                { title: 'Disco Ball', rating: 4.7, image: 'https://images.pexels.com/photos/60217/pexels-photo-60217.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.', bookLink: '#' },
+                { title: 'Blue Ball', rating: 4.2, image: 'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.', bookLink: '#' },
+                { title: 'Green Ball', rating: 4.1, image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.', bookLink: '#' },
+                { title: 'Red Ball', rating: 4.3, image: 'https://images.pexels.com/photos/13581464/pexels-photo-13581464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'I show you how to make a card group easily and very functional with the use of flexbox and its magic and JavaScript.', bookLink: '#' },
                 // Add more cards as needed
             ],
             currentIndex: 0
@@ -84,7 +84,7 @@ export default {
                             <div class="card-text">
                                 <h2>{{ card.title }}</h2>
                                 <p>{{ card.description }}</p>
-                                <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Book Now</a>
+                                <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" :href="card.bookLink" target="_blank">Book Now</a>
                             </div>
                         </div>
                         <!-- Card End -->

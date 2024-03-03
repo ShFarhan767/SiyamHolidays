@@ -6,18 +6,13 @@ const headerContent = {
         hours: "Mon-Sat, 8.00-18.00. Sunday CLOSED"
     },
     navbarContent: {
-        logoSrc: "../../assets/img/Travel/Logo/logo_2.png",
+        logoSrc: "/assets/logo_2-672de651.png",
         navItems: [
-            { label: "Home", link: "/" },
+            // { label: "Home", link: "/" },
             { label: "Hotel", link: "/hotel" },
+            { label: "Flight", link: "/flight" },
             { label: "Package Tour", link: "/package-tour" },
-            {
-                label: "Transportation",
-                dropdownItems: [
-                    { label: "Flight", link: "/flight" },
-                    { label: "By Road", link: "/transportation" }
-                ]
-            },
+            { label: "Transport", link: "/transportation" },
             { label: "Sightseeing", link: "/activites" },
             { label: "Visa", link: "/visa" }
         ],
@@ -52,9 +47,9 @@ const headerContent = {
     <div class="sticky-top navbar-elixir">
         <div class="container">
             <nav class="navbar navbar-expand-lg"> 
-                <a class="navbar-brand" href="/">
+                <RouterLink to="/" class="navbar-brand">
                     <img :src="headerContent.navbarContent.logoSrc" alt="logo" class="nav-logo" />
-                </a>
+                </RouterLink>
                 <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="hamburger hamburger--emphatic">
                         <span class="hamburger-box"><span class="hamburger-inner"></span></span>

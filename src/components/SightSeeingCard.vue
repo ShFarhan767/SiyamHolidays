@@ -1,7 +1,7 @@
 <script setup>
 const destinations = [
   {
-    image: "../../assets/img/Travel/Attractive/Card-1.jpg",
+    image: "/assets/Card-1-156c865f.jpg",
     name: "Tribhum Park , Thailand",
     description: "TRIBHUM Three Realms: The Mysterious Three Worlds theme park is located in Phuket, Thailand",
     capacity: 1,
@@ -9,7 +9,7 @@ const destinations = [
     ticketLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Attractive/Card-2.jpg",
+    image: "/assets/Card-2-151ad9be.jpg",
     name: "ESCAPE Penang , Malaysia",
     description: "Park offering a high ropes course, zip lines, slides, a climbing tower & kid-friendly attractions.",
     capacity: 1,
@@ -17,7 +17,7 @@ const destinations = [
     ticketLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Attractive/Card-3.jpg",
+    image: "/assets/Card-3-fb7edefb.jpg",
     name: "Waterbom Bali , Indonesia ",
     description: "Come & experience the excitement of the Waterbom Bali Ride Waterslides! Fun for the whole family.",
     capacity: 1,
@@ -25,7 +25,7 @@ const destinations = [
     ticketLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Attractive/Card-4.jpg",
+    image: "/assets/Card-4-9e76865b.jpg",
     name: "Splash Worksi , Canada ",
     description: "Welcome to Splash Works, our 20-acre premier water park where families can splish, splash and laugh!",
     capacity: 1,
@@ -33,7 +33,7 @@ const destinations = [
     ticketLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Attractive/Card-5.jpg",
+    image: "/assets/Card-5-d7438837.jpg",
     name: "Kings Islandi , USA ",
     description: "Kings Island is a 364-acre park located 24 miles (39 km) northeast of Cincinnati in Mason, Ohio, United States.",
     capacity: 1,
@@ -41,7 +41,7 @@ const destinations = [
     ticketLink: "#"
   },
   {
-    image: "../../assets/img/Travel/Attractive/Card-6.jpg",
+    image: "/assets/Card-6-7273fb5f.jpg",
     name: "Skyline Queenstown",
     description: "Attraction featuring a gondola to a panoramic restaurant/bar, hiking trails & a luge ride down.",
     capacity: 1,

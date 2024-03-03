@@ -8,42 +8,48 @@ export default {
                     description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
                     person: '2 PERSON',
                     price: '$173.99',
-                    image: '../../assets/img/Travel/Attractive/Slider-1.jpg'
+                    image: '/assets/Slider-1-934de7d0.jpg', 
+                    ticketLink: '#' 
                 },
                 {
                     name: 'El Nido’s Beach',
                     description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
                     person: '1 PERSON',
                     price: '$89.99',
-                    image: '../../assets/img/Travel/Attractive/Slider-2.jpg'
+                    image: '/assets/Slider-2-a7a5bc0a.jpg', 
+                    ticketLink: '#' 
                 },
                 {
                     name: 'Ancient Antique',
                     description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
                     person: '1 PERSON',
                     price: '$127.99',
-                    image: '../../assets/img/Travel/Attractive/Slider-3.jpeg'
+                    image: '/assets/Slider-3-8311cb2a.jpeg', 
+                    ticketLink: '#' 
                 },
                 {
                     name: 'Malaysia',
                     description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
                     person: '1 PERSON',
                     price: '$77.99',
-                    image: '../../assets/img/Travel/Attractive/Slider-4.jpeg'
+                    image: '/assets/Slider-4-85701a21.jpeg', 
+                    ticketLink: '#' 
                 },
                 {
                     name: 'Singapore',
                     description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
                     person: '2 PERSON',
                     price: '$181.99',
-                    image: '../../assets/img/Travel/Attractive/Slider-5.jpg'
+                    image: '/assets/Slider-5-9844ab5e.jpg', 
+                    ticketLink: '#' 
                 },
                 {
                     name: 'Machu Picchu',
                     description: 'Discover off-the-beaten-path locations and hidden gems within dream destinations, taking you beyond the typical tourist spots.',
                     person: '2 PERSON',
                     price: '$147.99',
-                    image: '../../assets/img/Travel/Attractive/slider-6.jpg'
+                    image: '/assets/slider-6-a29fc4df.jpg', 
+                    ticketLink: '#' 
                 }
             ]
         };

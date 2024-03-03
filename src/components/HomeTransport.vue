@@ -3,12 +3,12 @@ export default {
     data() {
         return {
             cards: [
-                { title: 'Great Ocean Road', persons: '1', transport: 'BY PLANE', price: '$270.99', image: 'https://images.pexels.com/photos/163792/model-planes-airplanes-miniatur-wunderland-hamburg-163792.jpeg?auto=compress&cs=tinysrgb&w=400' },
-                { title: 'Great Ocean Road', persons: '1', transport: 'BY TRAIN', price: '$21.49', image: 'https://images.pexels.com/photos/72594/japan-train-railroad-railway-72594.jpeg?auto=compress&cs=tinysrgb&w=400' },
-                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$14.99', image: 'https://images.pexels.com/photos/1178448/pexels-photo-1178448.jpeg?auto=compress&cs=tinysrgb&w=400' },
-                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
-                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
-                { title: 'A Tropical Haven.', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/3601421/pexels-photo-3601421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' }
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY PLANE', price: '$270.99', image: 'https://images.pexels.com/photos/163792/model-planes-airplanes-miniatur-wunderland-hamburg-163792.jpeg?auto=compress&cs=tinysrgb&w=400', ticketLink: '#' },
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY TRAIN', price: '$21.49', image: 'https://images.pexels.com/photos/72594/japan-train-railroad-railway-72594.jpeg?auto=compress&cs=tinysrgb&w=400', ticketLink: '#' },
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$14.99', image: 'https://images.pexels.com/photos/1178448/pexels-photo-1178448.jpeg?auto=compress&cs=tinysrgb&w=400', ticketLink: '#' },
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', ticketLink: '#' },
+                { title: 'Great Ocean Road', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', ticketLink: '#' },
+                { title: 'A Tropical Haven.', persons: '1', transport: 'BY BUS', price: '$17.99', image: 'https://images.pexels.com/photos/3601421/pexels-photo-3601421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', ticketLink: '#' }
             ]
         };
     },
@@ -73,7 +73,7 @@ export default {
                             <h2>{{ card.title }}</h2>
                             <p><i class="fas fa-map-marker-alt"></i> {{ card.persons }} PERSON, ({{ card.transport }})</p>
                             <p class="price"><i class="fas fa-tag"></i> Price <span>{{ card.price }}</span></p>
-                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" href="#" target="_blank">Find Ticket</a>
+                            <a class="btn btn-outline-primary rounded-pill btn-sm border-2 d-block d-lg-inline-block ms-auto my-3 my-lg-0" :href="card.ticketLink" target="_blank">Find Ticket</a>
                         </div>
                     </div>
                     <!-- Card End -->

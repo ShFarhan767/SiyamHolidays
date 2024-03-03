@@ -1,4 +1,48 @@
 <script setup>
+const footerContent = {
+    footerDetails: {
+        contactDetails: [
+            {contactTitle: 'Phone :' , contactInfo: '02226603034'},
+            {contactTitle: 'Whatsapp :' , contactInfo: '01727-985581'},
+            {contactTitle: 'E-mail :' , contactInfo: 'sales@siyamholidays.com'},
+        ],
+
+        logoSrc: "/assets/logo_2-672de651.png",
+        hotlineNumber: ' 0188 00 78 901',
+
+        socialContact: [
+            {icon: 'fab fa-facebook-f' , name: 'Facebook', socialLink: '#'},
+            {icon: 'fab fa-twitter' , name: 'Twitter', socialLink: '#'},
+            {icon: 'fa-brands fa-instagram' , name: 'Instagram', socialLink: '#'},
+            {icon: 'fa-brands fa-linkedin-in' , name: 'Linkedin', socialLink: '#'},
+            {icon: 'fab fa-youtube' , name: 'YouTube', socialLink: '#'},
+            {icon: 'fa-brands fa-tiktok' , name: 'TikTok', socialLink: '#'},
+        ]
+    },
+}
+const offices = [
+    {
+        branch: 'Bangladesh Office',
+        name: 'Siyam Holidays',
+        email: 'siyaminfo@gmail.com',
+        phoneNumber: '+880 1880 078901',
+        address: 'House#62, Road#15, Block-C, Banani, Dhaka-1212, Bangladesh. Contact: 09639888555'
+    },
+    {
+        branch: 'Dubai Office',
+        name: 'Siyam Holidays Tourism L.L.C',
+        email: 'siyaminfo@gmail.com',
+        phoneNumber: '+971 1854 39547',
+        address: 'Bin Zafar Building, Shop No-03, Eyal Nasser, Deira, Naif, Dubai, United Arab Emirates.'
+    },
+    {
+        branch: 'Thailand Office',
+        name: 'Siyam Holidays Co, Ltd',
+        email: 'siyaminfo@gmail.com',
+        phoneNumber: '+66 10 012000',
+        address: '21/34, Moo-5, Nangprue Banglamung, Chonburi-20150, Thailand.'
+    }
+]
 </script>
 
 <template>
@@ -10,20 +54,15 @@
                     <div class="container mt-3">
                         <div class="row">
                             <div class="col-md-3 col-sm-6" style="color: white;font-weight: normal;font-size: 15px;">
-                                <div class=""> <img src="../../assets/img/Header.png" alt="" style="width: 200px; margin-bottom: 7px;"></div> 
-                                <p class="">
-                                    Phone: 02226603034
-                                </p>
-
-                                <p class="">
-                                    Whatsapp : 01727-985581
-                                </p>
-                                 <p class="">
-                                  E-mail: sales@siyamholidays.com
+                                <div class="">
+                                    <img :src="footerContent.footerDetails.logoSrc" alt="" style="width: 200px; margin-bottom: 7px;">
+                                </div> 
+                                <p v-for="(contact , index) in footerContent.footerDetails.contactDetails" :key="index" class="">
+                                    {{ contact.contactTitle }} {{ contact.contactInfo }}
                                 </p>
 
                                 <h3 class="contact" >24<span class=" " style="color: #fd9604;">/</span>7 Contact </h3>
-                                <h5 class="number" style="color: #fd9604;"> 0188 00 78 901 </h5>
+                                <h5 class="number" style="color: #fd9604;">{{ footerContent.footerDetails.hotlineNumber }}</h5>
                                     <div class="col-md-12 padding" style="margin-top: 10px;margin-bottom: 10px;">
                                         <img src="https://tvlk.imgix.net/imageResource/2017/12/13/1513150313470-072f6bdc02c0b73fcf791aa2b2264fbd.svg?auto=compress%2Cformat&cs=srgb&ixlib=java-1.1.12&q=75" style="width: 80px;">
                                          <img src="https://tvlk.imgix.net/imageResource/2017/12/13/1513150321127-5096be77d2a19401b476853e54ba2cc6.svg?auto=compress%2Cformat&cs=srgb&ixlib=java-1.1.12&q=75" style="width: 80px;">
@@ -39,22 +78,26 @@
                                     <li><a href="#"> Help Center </a></li>
                                     <li><a href="#"> About Us </a></li>
                                     <li> 
-                                
-                                    <h3 class="mt-3" style="color: white; font-size: 20px; font-weight: 500; letter-spacing: 0.2px;"> Follow <span class=" " style="color: #fd9604;">US</span> on </h3>
-                                </li>
+                                        <h3 class="mt-3" style="color: white; font-size: 20px; font-weight: 500; letter-spacing: 0.2px;"> Follow <span class=" " style="color: #fd9604;">US</span> on </h3>
+                                    </li>
 
-                                    <li><a href="https://www.facebook.com/siyamholidays/" target="_blank" class="color-white"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                                    <li><a href="https://twitter.com/" class="color-white"><i class="fab fa-twitter"></i> Twitter</a></li>
-                                            <li>
-                                                <a href="https://aboutme.google.com/" class="color-white">
-                                                    <i class="fab fa-google-plus-g"></i> Google Plus
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.youtube.com">
-                                                    <i class="fab fa-youtube"></i> Youtube
-                                                </a>
-                                            </li>
+                                    <li v-for="(social , index) in footerContent.footerDetails.socialContact" :key="index">
+                                        <a :href="social.socialLink" target="_blank" class="Link">
+                                            <i :class="social.icon"></i>
+                                            {{ social.name }}
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="https://twitter.com/" class="color-white">
+                                            <i class="fab fa-twitter"></i> 
+                                            Twitter
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com">
+                                            <i class="fab fa-youtube"></i> Youtube
+                                        </a>
+                                    </li> -->
                                 </ul>
                             </div>
 
@@ -91,26 +134,15 @@
 
                     <div class="container secend-area">
                         <div class="row">
-                            <div class="col-md-4 ">
-                            <div class="col-md-12 secend-box">
-                                <h4 class=" mt-2" style="text-align: center; font-size: 18px; color: #fd9604;">Bangladesh Office</h4><hr>
-                                    <h4 style="color: white; font-size: 16px;"> Siyam Holidays </h4>
-                                    <p class="p" style="color: white;font-weight: normal;">House#62, Road#15, Block-C, Banani, Dhaka-1212, Bangladesh.Contact: 09639888555</p>
-                            </div>
-                            </div>
-                            <div class="col-md-4">
-                            <div class="col-md-12 secend-box">
-                                <h4 class="mt-2" style="text-align: center;color: white;font-size: 18px;color: #fd9604;">Dubai Office </h4><hr>
-                                    <h4 style="color: white; font-size: 16px;"> Siyam Holidays Tourism L.L.C </h4>
-                                    <p class="p" style="color: white;font-weight: normal;">Bin Zafar Building, Shop No-03, Eyal Nasser, Deira, Naif, Dubai, United Arab Emirates. </p>
-                            </div>
-                            </div>
-                            <div class="col-md-4">
-                            <div class="col-md-12 secend-box">
-                                <h4 class="mt-2" style="text-align: center;color: white; font-size: 18px;color: #fd9604;">Thailand Office </h4><hr>
-                                    <h4 style="color: white; font-size: 16px;"> Siyam Holidays Co, Ltd </h4>
-                                    <p class="p" style="color: white;font-weight: normal;"> 21/34, Moo-5, Nangprue Banglamung, Chonburi-20150, Thailand. </p>
-                            </div>
+                            <div class="col-md-4" v-for="(office, index) in offices" :key="index">
+                                <div class="col-md-12 secend-box">
+                                    <h4 class=" mt-2 Branch">{{ office.branch }}</h4>
+                                    <hr>
+                                    <h4 class="Office_Name">{{ office.name }}</h4>
+                                    <h4 class="Contact">{{ office.email }}</h4>
+                                    <h4 class="Contact">{{ office.phoneNumber }}</h4>
+                                    <p class="p Address">{{ office.address }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,7 +182,11 @@ svg:not(:root).svg-inline--fa {
     font-size: 18px;
     margin: 0px 5px;
 }
-
+.Link i{
+    color: #fd9604;
+    font-size: 18px;
+    margin: 5px 7px;
+}
 .heading7 {
     color: #fd9604;
     font-size: 20px;
@@ -189,16 +225,35 @@ hr {
     margin-top: 20px;
 }
 
-.secend-box h4 {
+/* .secend-box h4 {
     margin-left: 0;
     font-size: 16px;
-}
+} */
 
 .secend-box p {
     font-size: 14px;
     margin-left: 0;
 }
-
+.Branch{
+    text-align: center; 
+    font-size: 20px; 
+    color: #fd9604;
+}
+.Office_Name{
+    color: white; 
+    font-size: 18px;
+}
+.Address{
+    font-size: 14px;
+    line-height: 1.6;
+    color: white;
+    font-weight: normal;
+}
+.Contact{
+    font-size: 16px;
+    line-height: 0.5;
+    color: #8d8d8d;
+}
 @media screen and (max-width: 768px) {
     .footer_area {
         padding: 15px;

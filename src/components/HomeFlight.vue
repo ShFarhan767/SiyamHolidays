@@ -10,7 +10,8 @@ const airlines = [
             NZ: '0800 039 339',
             INT: '+61 2 9250 9444'
         },
-        email: 'airmaltaserv@gmail.com'
+        email: 'airmaltaserv@gmail.com',
+        flightLink: '#'
     },
     {
         name: 'AIR SERBIA',
@@ -22,7 +23,8 @@ const airlines = [
             NZ: '0800 039 339',
             INT: '+61 2 9250 9444'
         },
-        email: 'airmaltaserv@gmail.com'
+        email: 'airmaltaserv@gmail.com',
+        flightLink: '#'
     },
     {
         name: 'ALITALIA',
@@ -34,7 +36,8 @@ const airlines = [
             NZ: '0800 039 339',
             INT: '+61 2 9250 9444'
         },
-        email: 'airmaltaserv@gmail.com'
+        email: 'airmaltaserv@gmail.com',
+        flightLink: '#'
     },
     {
         name: 'BRUSSELS',
@@ -46,7 +49,8 @@ const airlines = [
             NZ: '0800 039 339',
             INT: '+61 2 9250 9444'
         },
-        email: 'airmaltaserv@gmail.com'
+        email: 'airmaltaserv@gmail.com',
+        flightLink: '#'
     }
 ];
 </script>
@@ -63,26 +67,28 @@ const airlines = [
                 <div class="card-content">
                     <!-- Card -->
                     <div class="card" v-for="(airline, index) in airlines" :key="index">
-                        <div class="card-img">
-                            <img :src="airline.logo" :alt="airline.name">
-                        </div>
-                        <div class="card-text">
-                            <div :class="airline.className">
-                                <div class="overlay"></div>
-                                <div class="container">
-                                    <div class="col-md-12 text-center animate-box">
-                                        <h4>{{ airline.name }} ({{ airline.code }})</h4><br>
-                                        <ul>
-                                            <li v-for="(number, location) in airline.phoneNumbers" :key="location">
-                                                {{ location }}:<span>{{ number }}</span>
-                                            </li>
-                                        </ul>
-                                        <h5>SEND US EMAIL </h5>
-                                        <h6>{{ airline.email }}</h6>
+                        <a :href="airline.flightLink">
+                            <div class="card-img">
+                                <img :src="airline.logo" :alt="airline.name">
+                            </div>
+                            <div class="card-text">
+                                <div :class="airline.className">
+                                    <div class="overlay"></div>
+                                    <div class="container">
+                                        <div class="col-md-12 text-center animate-box">
+                                            <h4>{{ airline.name }} ({{ airline.code }})</h4><br>
+                                            <ul>
+                                                <li v-for="(number, location) in airline.phoneNumbers" :key="location">
+                                                    {{ location }}:<span>{{ number }}</span>
+                                                </li>
+                                            </ul>
+                                            <h5>SEND US EMAIL </h5>
+                                            <h6>{{ airline.email }}</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                         

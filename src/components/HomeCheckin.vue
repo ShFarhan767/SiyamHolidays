@@ -517,7 +517,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width:50% !important;
 }
 .fa-map-marker-alt{
-    top: 20px !important;
+    top: 0px !important;
 }
 .fa-2x {
     font-size: 1.5em;
