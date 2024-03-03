@@ -1,4 +1,48 @@
 <script setup>
+const footerContent = {
+    footerDetails: {
+        contactDetails: [
+            {contactTitle: 'Phone :' , contactInfo: '02226603034'},
+            {contactTitle: 'Whatsapp :' , contactInfo: '01727-985581'},
+            {contactTitle: 'E-mail :' , contactInfo: 'sales@siyamholidays.com'},
+        ],
+
+        logoSrc: "/assets/logo_2-672de651.png",
+        hotlineNumber: ' 0188 00 78 901',
+
+        socialContact: [
+            {icon: 'fab fa-facebook-f' , name: 'Facebook', socialLink: '#'},
+            {icon: 'fab fa-twitter' , name: 'Twitter', socialLink: '#'},
+            {icon: 'fa-brands fa-instagram' , name: 'Instagram', socialLink: '#'},
+            {icon: 'fa-brands fa-linkedin-in' , name: 'Linkedin', socialLink: '#'},
+            {icon: 'fab fa-youtube' , name: 'YouTube', socialLink: '#'},
+            {icon: 'fa-brands fa-tiktok' , name: 'TikTok', socialLink: '#'},
+        ]
+    },
+}
+const offices = [
+    {
+        branch: 'Bangladesh Office',
+        name: 'Siyam Holidays',
+        email: 'siyaminfo@gmail.com',
+        phoneNumber: '+880 1880 078901',
+        address: 'House#62, Road#15, Block-C, Banani, Dhaka-1212, Bangladesh. Contact: 09639888555'
+    },
+    {
+        branch: 'Dubai Office',
+        name: 'Siyam Holidays Tourism L.L.C',
+        email: 'siyaminfo@gmail.com',
+        phoneNumber: '+971 1854 39547',
+        address: 'Bin Zafar Building, Shop No-03, Eyal Nasser, Deira, Naif, Dubai, United Arab Emirates.'
+    },
+    {
+        branch: 'Thailand Office',
+        name: 'Siyam Holidays Co, Ltd',
+        email: 'siyaminfo@gmail.com',
+        phoneNumber: '+66 10 012000',
+        address: '21/34, Moo-5, Nangprue Banglamung, Chonburi-20150, Thailand.'
+    }
+]
 </script>
 
 <template>
